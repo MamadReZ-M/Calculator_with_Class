@@ -1,0 +1,77 @@
+# calculator with class 
+#Calculator_module.py
+
+class Calculator:
+        def __init__(self,a,op,b):
+            self.a = a
+            self.op = op
+            self.b = b
+            
+        def add(self, a, b):
+
+            result = int(a) + int(b)
+            return result
+        
+        def subtract(self, a, b):
+
+            result = int(a) - int(b)
+            return result
+        
+        def multiply(self, a, b):
+
+            result = int(a) * int(b)
+            return result
+        
+        def divide(self, a, b):
+
+            if b == 0:
+                raise ValueError("Cannot divide by zero!")
+            result = int(a) / int(b)
+            return result
+            
+#main.py
+#import Calculator of calculator_module.py
+from calculator_module import Calculator
+
+while True:
+    print(''' 
+        1) add
+        2) subtract
+        3) multiply
+        4) divide
+        5) Exit
+        ''')
+
+    op=int(input("Which Operation do you want to run ? :"))
+    a = input("Enter First Number :")
+    b = input("Enter Second Number :")
+    calculator = Calculator(a,op,b)
+
+    if op == 1:
+        result = calculator.add(a,b)
+        print(result) 
+
+    elif op == 2:
+        result = calculator.subtract(a,b)
+        print(result)
+
+    elif op == 3:
+        result = calculator.multiply(a,b)
+        print(result)
+
+    elif op == 4:
+        result = calculator.divide(a,b)
+        print(result)
+
+    elif op == 5:
+        break
+        exit()
+
+    else:
+        print("Your choice operation is defind...Try Again!")
+
+    again = input("Do another calculation? (y/n): ")
+    if again == "y":
+        continue
+    elif again == "n":
+        break
